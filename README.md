@@ -11,6 +11,10 @@
   <img src="https://img.shields.io/badge/License-MIT-green">
 </p>
 
+<p align="center">
+  <a href="https://sentiment-analysis-mrvnvm7o4iwbdv6zjgabg2.streamlit.app/"><img src="https://img.shields.io/badge/%E2%96%B6_Live_Demo-Open_App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live demo"></a>
+</p>
+
 <p align="center"><b>Best model — TF-IDF + Logistic Regression · 90.9% accuracy · F1 0.910 · ROC-AUC 0.970</b></p>
 
 <p align="center">
@@ -54,7 +58,7 @@ streamlit run app/app.py
 ```
 
 > Deploy it free on Streamlit Community Cloud — see [`STEPS.md`](STEPS.md).
-> **▶️ Live demo:** _add your `…streamlit.app` link_
+> **▶️ Live demo:** **https://sentiment-analysis-mrvnvm7o4iwbdv6zjgabg2.streamlit.app/**
 
 Sample predictions:
 
