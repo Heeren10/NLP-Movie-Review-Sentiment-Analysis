@@ -1,0 +1,277 @@
+/* Uses only tokens from tokens.css. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font: 400 var(--font-size-base) / 1.55 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 3px;
+}
+
+/* Layout: one left-aligned reading column */
+.page {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: var(--page-padding-top) var(--space-gutter) var(--space-12);
+}
+
+.masthead h1 {
+  margin: 0;
+  font: 500 var(--font-size-display-md) / 1.05 var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+.lede {
+  max-width: var(--measure-narrow);
+  margin: var(--space-4) 0 0;
+  color: var(--color-fg-muted);
+}
+
+/* Input */
+.composer {
+  margin-top: var(--space-10);
+}
+
+.field-label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: var(--input-min-height);
+  padding: var(--input-padding);
+  border: 1px solid var(--input-border);
+  border-radius: var(--input-radius);
+  background: var(--input-bg);
+  font: 400 var(--font-size-lg) / 1.5 var(--font-display);
+  resize: vertical;
+}
+
+textarea:focus-visible {
+  outline-offset: 0;
+  border-color: var(--input-border-focus);
+}
+
+.composer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-6);
+  margin-top: var(--space-4);
+}
+
+.primary {
+  padding: var(--button-padding);
+  border: 0;
+  border-radius: var(--button-radius);
+  background: var(--button-bg);
+  color: var(--button-fg);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--button-bg-hover);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-md);
+}
+
+.example {
+  padding: var(--space-1) 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-border);
+  background: none;
+  cursor: pointer;
+}
+
+.example:hover:not(:disabled) {
+  border-bottom-color: var(--color-fg);
+}
+
+.error {
+  margin: var(--space-4) 0 0;
+  color: var(--color-danger);
+  font-weight: 500;
+}
+
+/* Result */
+.result {
+  margin-top: var(--space-12);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+}
+
+.empty {
+  margin: 0;
+  color: var(--color-fg-muted);
+}
+
+.verdict h2 {
+  margin: 0;
+  color: color-mix(in oklab, var(--c) 85%, var(--color-fg));
+  font: 600 var(--verdict-size) / 1 var(--font-display);
+  letter-spacing: -0.02em;
+  overflow-wrap: break-word;
+}
+
+.verdict p {
+  margin: var(--space-2) 0 0;
+  font-size: var(--font-size-xl);
+  font-weight: 500;
+}
+
+/* Five-band meter */
+.meter {
+  margin-top: var(--space-6);
+}
+
+.meter-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--meter-gap);
+  height: var(--meter-height);
+}
+
+.meter-band {
+  border-radius: var(--radius-sm);
+  background: color-mix(in oklab, var(--c) var(--meter-band-tint), var(--color-bg));
+}
+
+.meter-band.is-active {
+  background: var(--c);
+}
+
+.meter-tick {
+  position: absolute;
+  top: -5px;
+  width: 2px;
+  height: calc(100% + 10px);
+  margin-left: -1px;
+  background: var(--color-fg-muted);
+  opacity: 0.55;
+}
+
+.meter-needle {
+  position: absolute;
+  top: -9px;
+  width: var(--meter-needle-width);
+  height: calc(100% + 18px);
+  margin-left: calc(var(--meter-needle-width) / -2);
+  border-radius: var(--radius-sm);
+  background: var(--meter-needle-color);
+  box-shadow: 0 0 0 2px var(--color-bg);
+  transition: left var(--duration-slow) var(--ease-out);
+}
+
+.meter-labels {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--meter-gap);
+  margin-top: var(--space-3);
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-xs);
+  line-height: 1.25;
+}
+
+.meter-labels .is-active {
+  color: var(--color-fg);
+  font-weight: 600;
+}
+
+/* The review, marked clause by clause */
+.section-title {
+  margin: var(--space-10) 0 var(--space-3);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+}
+
+.marked {
+  margin: 0;
+  font: 400 var(--font-size-display-sm) / 1.75 var(--font-display);
+}
+
+.clause {
+  padding: 0.05em 0.15em;
+  border-bottom: var(--clause-underline) solid var(--c);
+  background: color-mix(in oklab, var(--c) var(--clause-tint), transparent);
+  color: inherit;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.clause-score {
+  margin-left: 0.2em;
+  color: color-mix(in oklab, var(--c) 70%, var(--color-fg));
+  font: 600 var(--font-size-xs) / 1 var(--font-body);
+  white-space: nowrap;
+}
+
+.note {
+  max-width: var(--measure);
+  margin: var(--space-8) 0 0;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-md);
+}
+
+.compare {
+  margin-top: var(--space-5);
+  font-size: var(--font-size-md);
+}
+
+.compare summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.compare p {
+  margin: var(--space-2) 0 0;
+  color: var(--color-fg-muted);
+}
+
+.credit {
+  margin-top: var(--space-16);
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meter-needle {
+    transition: none;
+  }
+}

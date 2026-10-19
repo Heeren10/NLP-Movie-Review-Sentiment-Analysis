@@ -40,7 +40,7 @@ network. A well-tuned linear model is very hard to beat on IMDB.
 
 ## 🛠️ What I improved
 
-This project started from an open-source IMDB sentiment model (see [Acknowledgements](#-acknowledgements)).
+This project started from an open-source IMDB sentiment model (see [Acknowledgements](#acknowledgements)).
 I tested it, found where it fell short, and rebuilt the app around it. Every item below is working now.
 
 | Problem in the original | What I changed | Now |
@@ -248,9 +248,9 @@ sentiment-analysis/
 
 **Heeren Agrawal** — React frontend, design system, Python API, clause-level scoring, testing and documentation.
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
-Trained model and analysis notebook based on [Ankit Saxena's sentiment-analysis](https://github.com/AnkitSaxena-AI/sentiment-analysis)
+Trained model, analysis notebook and written report (`reports/`) based on [Ankit Saxena's sentiment-analysis](https://github.com/AnkitSaxena-AI/sentiment-analysis)
 (MIT License). Released under the [MIT License](LICENSE).
 
 ---

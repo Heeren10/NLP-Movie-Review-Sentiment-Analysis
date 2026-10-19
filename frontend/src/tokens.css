@@ -1,0 +1,126 @@
+/* Design tokens, in three layers: primitive -> semantic -> component.
+   styles.css uses only semantic and component tokens; dark mode overrides only the semantic layer. */
+
+/* === PRIMITIVES: raw values, no meaning === */
+:root {
+  --color-ink-50: #f4f3f8;
+  --color-ink-100: #ebe9f3;
+  --color-ink-200: #d9d6e3;
+  --color-ink-400: #a6a1b8;
+  --color-ink-600: #615c74;
+  --color-ink-800: #322e42;
+  --color-ink-900: #1f1c2e;
+  --color-ink-950: #16141f;
+  --color-white: #ffffff;
+  --color-orange-700: #c2410c;
+  --color-orange-500: #e0682f;
+  --color-violet-grey-400: #9691a2;
+  --color-cobalt-700: #1d5fa8;
+  --color-cobalt-500: #4a8ad6;
+  --color-cobalt-300: #7fb0ec;
+  --color-red-700: #b42318;
+  --color-red-300: #ff8a7a;
+
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Schibsted Grotesk", system-ui, sans-serif;
+
+  --font-size-xs: 0.8125rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 0.9375rem;
+  --font-size-base: 1.0625rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-display-sm: clamp(1.3rem, 3.4vw, 1.6rem);
+  --font-size-display-md: clamp(2.25rem, 6vw, 3.5rem);
+  --font-size-display-lg: clamp(2.75rem, 9vw, 4.5rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  --radius-sm: 2px;
+  --radius-md: 6px;
+
+  --duration-slow: 0.5s;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* === SEMANTIC: what a value is for === */
+:root {
+  --color-bg: var(--color-ink-50);
+  --color-fg: var(--color-ink-900);
+  --color-fg-muted: var(--color-ink-600);
+  --color-border: var(--color-ink-200);
+  --color-surface: var(--color-white);
+  --color-accent: var(--color-cobalt-700);
+  --color-danger: var(--color-red-700);
+
+  /* Diverging sentiment scale: orange -> grey -> cobalt (colour-blind safe, unlike red/green) */
+  --color-sentiment-neg: var(--color-orange-700);
+  --color-sentiment-mid: var(--color-violet-grey-400);
+  --color-sentiment-pos: var(--color-cobalt-700);
+
+  --font-body: var(--font-sans);
+  --font-display: var(--font-serif);
+
+  --space-gutter: var(--space-4);
+  --measure: 38rem;
+  --measure-narrow: 36rem;
+  --radius-control: var(--radius-md);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: var(--color-ink-950);
+    --color-fg: var(--color-ink-100);
+    --color-fg-muted: var(--color-ink-400);
+    --color-border: var(--color-ink-800);
+    --color-surface: var(--color-ink-900);
+    --color-accent: var(--color-cobalt-300);
+    --color-danger: var(--color-red-300);
+    --color-sentiment-neg: var(--color-orange-500);
+    --color-sentiment-pos: var(--color-cobalt-500);
+    color-scheme: dark;
+  }
+}
+
+/* === COMPONENT: per-component knobs, built from semantic tokens === */
+:root {
+  --page-width: 46rem;
+  --page-padding-top: clamp(2.5rem, 7vw, 5rem);
+
+  --focus-ring: 2px solid var(--color-accent);
+
+  --button-bg: var(--color-fg);
+  --button-fg: var(--color-bg);
+  --button-bg-hover: var(--color-accent);
+  --button-padding: var(--space-3) var(--space-6);
+  --button-radius: var(--radius-control);
+
+  --input-bg: var(--color-surface);
+  --input-border: var(--color-border);
+  --input-border-focus: var(--color-accent);
+  --input-padding: var(--space-4);
+  --input-radius: var(--radius-control);
+  --input-min-height: 8.5rem;
+
+  --verdict-size: var(--font-size-display-lg);
+
+  --meter-height: 0.875rem;
+  --meter-gap: 3px;
+  --meter-band-tint: 28%;
+  --meter-needle-width: 4px;
+  --meter-needle-color: var(--color-fg);
+
+  --clause-tint: 16%;
+  --clause-underline: 3px;
+}
